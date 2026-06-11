@@ -1,0 +1,268 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --panel: #ffffff;
+  --text: #17202a;
+  --muted: #657080;
+  --line: #dce1e8;
+  --accent: #1769e0;
+  --accent-dark: #0f55ba;
+  --danger: #c53232;
+  --danger-dark: #9f2525;
+  --shadow: 0 10px 28px rgba(20, 28, 38, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  line-height: 1.08;
+}
+
+h2 {
+  font-size: 1.1rem;
+}
+
+p,
+span {
+  color: var(--muted);
+}
+
+code {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  color: #26313f;
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 0.86rem;
+}
+
+.center {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.app {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 64px;
+}
+
+.topbar,
+.sectionHeader,
+.configItem,
+.actions,
+.inlineForm {
+  display: flex;
+  gap: 16px;
+}
+
+.topbar,
+.sectionHeader,
+.configItem {
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.topbar {
+  margin-bottom: 24px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 22px;
+  margin-bottom: 18px;
+}
+
+.panel.small {
+  width: min(520px, 100%);
+}
+
+.panel.small p {
+  margin: 12px 0 20px;
+}
+
+.form,
+.inlineForm {
+  margin-top: 18px;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+.inlineForm {
+  align-items: end;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: #2d3745;
+  font-weight: 650;
+}
+
+.inlineForm label {
+  flex: 1;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px 12px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid rgba(23, 105, 224, 0.2);
+  border-color: var(--accent);
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.check input {
+  width: 18px;
+  height: 18px;
+}
+
+button,
+.button {
+  border: 0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+button:hover,
+.button:hover {
+  background: var(--accent-dark);
+}
+
+button.ghost {
+  background: #eef3fa;
+  color: #25364d;
+}
+
+button.ghost:hover {
+  background: #dde8f6;
+}
+
+button.danger {
+  background: var(--danger);
+}
+
+button.danger:hover {
+  background: var(--danger-dark);
+}
+
+.configList {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.configItem {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+  background: #fbfcfe;
+}
+
+.configMeta {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.actions {
+  flex-wrap: wrap;
+}
+
+.empty {
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  padding: 20px;
+  text-align: center;
+}
+
+.toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  max-width: min(420px, calc(100vw - 40px));
+  background: #17202a;
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px 14px;
+  box-shadow: var(--shadow);
+}
+
+.toast.error {
+  background: var(--danger);
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 720px) {
+  .topbar,
+  .sectionHeader,
+  .configItem,
+  .inlineForm {
+    display: grid;
+  }
+
+  .actions {
+    justify-content: start;
+  }
+
+  button,
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+}

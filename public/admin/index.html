@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin | V2Ray Subscription Manager</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <h1>Subscription Admin</h1>
+          <p>Manage enabled V2Ray links stored in Cloudflare KV.</p>
+        </div>
+        <button id="logoutBtn" class="ghost hidden" type="button">Log out</button>
+      </header>
+
+      <section id="loginPanel" class="panel">
+        <h2 id="loginTitle">Admin Login</h2>
+        <p id="loginHelp">Enter your admin password.</p>
+        <form id="loginForm" class="form">
+          <label>
+            <span id="passwordLabel">Admin password</span>
+            <input id="passwordInput" type="password" autocomplete="current-password" required>
+          </label>
+          <button type="submit">Log in</button>
+        </form>
+      </section>
+
+      <section id="adminPanel" class="hidden">
+        <section class="panel">
+          <div class="sectionHeader">
+            <div>
+              <h2>Subscription Token</h2>
+              <p>Public endpoint: <code id="subUrl">Set a token first</code></p>
+            </div>
+            <button id="copySubUrlBtn" class="ghost" type="button">Copy URL</button>
+          </div>
+          <form id="settingsForm" class="inlineForm">
+            <label>
+              Token
+              <input id="tokenInput" type="text" minlength="8" placeholder="long-random-token" required>
+            </label>
+            <button type="submit">Save Token</button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="sectionHeader">
+            <div>
+              <h2 id="formTitle">Add Config</h2>
+              <p>Accepted protocols: vless, vmess, trojan, ss.</p>
+            </div>
+            <button id="cancelEditBtn" class="ghost hidden" type="button">Cancel Edit</button>
+          </div>
+          <form id="configForm" class="form">
+            <input id="configId" type="hidden">
+            <label>
+              Name
+              <input id="nameInput" type="text" maxlength="120" placeholder="Main server" required>
+            </label>
+            <label>
+              Raw config link
+              <textarea id="linkInput" rows="5" spellcheck="false" placeholder="vless://..." required></textarea>
+            </label>
+            <label class="check">
+              <input id="enabledInput" type="checkbox" checked>
+              Enabled
+            </label>
+            <button type="submit">Save Config</button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="sectionHeader">
+            <div>
+              <h2>Configs</h2>
+              <p id="countText">No configs loaded.</p>
+            </div>
+            <button id="refreshBtn" class="ghost" type="button">Refresh</button>
+          </div>
+          <div id="configList" class="configList"></div>
+        </section>
+      </section>
+
+      <div id="toast" class="toast hidden"></div>
+    </main>
+    <script src="/admin/app.js?v=20260611-kv-password-setup"></script>
+  </body>
+</html>

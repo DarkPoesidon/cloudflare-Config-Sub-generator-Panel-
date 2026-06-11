@@ -1,0 +1,11 @@
+node_modules/
+.wrangler/
+.dev.vars
+.DS_Store
+release/
+dist/
+*.log
+*.exe
+*.pdb
+windows-setup-app/launcher/bin/
+windows-setup-app/launcher/obj/

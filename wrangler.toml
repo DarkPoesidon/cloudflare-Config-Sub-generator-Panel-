@@ -1,0 +1,8 @@
+﻿name = "v2ray-subscription-manager"
+compatibility_date = "2026-06-11"
+pages_build_output_dir = "public"
+
+[[kv_namespaces]]
+binding = "SUB_KV"
+id = "replace_with_production_kv_namespace_id"
+preview_id = "replace_with_preview_kv_namespace_id"

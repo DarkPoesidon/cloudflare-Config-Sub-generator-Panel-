@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>CloudflareV2RaySetup</AssemblyName>
+    <RootNamespace>CloudflareV2RaySetup</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\CloudflareSetupApp.ps1" LogicalName="CloudflareSetupApp.ps1" />
+  </ItemGroup>
+</Project>
