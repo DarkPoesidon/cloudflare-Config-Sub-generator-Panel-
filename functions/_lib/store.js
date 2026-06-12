@@ -1,7 +1,7 @@
 const CONFIGS_KEY = "configs";
 const SETTINGS_KEY = "settings";
 const ADMIN_AUTH_KEY = "admin_auth";
-const ALLOWED_PROTOCOLS = ["vless://", "vmess://", "trojan://", "ss://"];
+const ALLOWED_PROTOCOLS = ["vless://", "vmess://", "trojan://", "ss://", "hysteria2://", "hy2://"];
 
 function kv(env) {
   if (!env.SUB_KV) {
@@ -56,7 +56,7 @@ export function validateConfigInput(input, existing = {}) {
   }
 
   if (!ALLOWED_PROTOCOLS.some((protocol) => link.startsWith(protocol))) {
-    return { error: "Config link must start with vless://, vmess://, trojan://, or ss://" };
+    return { error: "Config link must start with vless://, vmess://, trojan://, ss://, hysteria2://, or hy2://" };
   }
 
   return {
