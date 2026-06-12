@@ -1,7 +1,7 @@
 const CONFIGS_KEY = "configs";
 const SETTINGS_KEY = "settings";
 const ADMIN_AUTH_KEY = "admin_auth";
-const ALLOWED_PROTOCOLS = ["vless://", "vmess://", "trojan://", "ss://", "hysteria2://", "hy2://"];
+const CONFIG_URI_PATTERN = /^[a-z][a-z0-9+.-]*:\/\/\S+$/i;
 
 function kv(env) {
   if (!env.SUB_KV) {
@@ -55,8 +55,8 @@ export function validateConfigInput(input, existing = {}) {
     return { error: "Config name must be 120 characters or less" };
   }
 
-  if (!ALLOWED_PROTOCOLS.some((protocol) => link.startsWith(protocol))) {
-    return { error: "Config link must start with vless://, vmess://, trojan://, ss://, hysteria2://, or hy2://" };
+  if (!CONFIG_URI_PATTERN.test(link)) {
+    return { error: "Config link must be a valid raw URI, for example vless://..., hysteria2://..., wireguard://..., or tuic://..." };
   }
 
   return {

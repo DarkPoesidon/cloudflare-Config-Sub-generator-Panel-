@@ -7,7 +7,7 @@ Cloudflare Pages + Functions project for managing raw V2Ray subscription links i
 - Static admin UI at `/admin`
 - Password-protected admin API
 - Cloudflare KV storage using binding `SUB_KV`
-- Add, edit, delete, enable, and disable raw `vless://`, `vmess://`, `trojan://`, `ss://`, `hysteria2://`, and `hy2://` links
+- Add, edit, delete, enable, and disable raw config URI links from 3x-ui and compatible panels
 - Public subscription endpoint at `/sub/:token`
 - Plain newline subscription output by default
 - Optional Base64 output with `/sub/:token?base64=1`
